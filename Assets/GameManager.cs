@@ -41,11 +41,13 @@ public class GameManager : MonoBehaviour
         if (checkWinner(currentPlayer))
         {
             resultText.text = $"Player {currentPlayer} wins!";
+            turnText.gameObject.SetActive(false);
             gameOver = true;
         }
         else if (checkDraw())
         {
             resultText.text = "It's a draw!";
+            turnText.gameObject.SetActive(false);
             gameOver = true;
         }
         else
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviour
         }
         xTurn = true;
         gameOver = false;
+        turnText.gameObject.SetActive(true);
         turnText.text = "Player X turn";
         resultText.text = "";
     }
